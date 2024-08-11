@@ -2,15 +2,14 @@ import pandas as pd
 from transform_reviews import transform_reviews, assign_unique_ids
 from transform_playstore import transform_playstore
 
-# Load the data
 df_reviews = pd.read_csv('csv/googleplaystore_user_reviews.csv')
 df_playstore = pd.read_csv('csv/googleplaystore.csv')
 
-# Transform the reviews and playstore DataFrames
+
 df_transformed_reviews = transform_reviews(df_reviews)
 df_transformed_playstore = transform_playstore(df_playstore)
 
-# Drop 'app_id' columns from both DataFrames if they exist
+
 if 'app_id' in df_transformed_reviews:
     df_transformed_reviews = df_transformed_reviews.drop(columns=['app_id'])
 
